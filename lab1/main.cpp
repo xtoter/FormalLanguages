@@ -41,9 +41,12 @@ void read(vector<char> *noterminals,  vector<char> *terminals,  map <char,vector
         if (c == 10) {
             break;
         }
-        scanf(" -> ");
+        scanf(" ->");
+
         getline(cin, temp);
-        (*data)[c].push_back(temp);
+        string v;
+        for(char c:temp) if (c != ' ') v += c;
+        (*data)[c].push_back(v);
     }
 }
 bool IsNonterminal(char in){ //Проверка на нетерминал
@@ -74,7 +77,7 @@ string delete_(string in) { //Замена нетерминалов на _
        if ( IsNonterminal(in[i])) {
          in[i]='_';
        } else if (!IsTerminal(in[i])) {
-           cout << "ERROR: Strange symbol";
+           cout <<  in[i] << "ERROR: Strange symbol";
        }
     }
     return in;
@@ -235,9 +238,8 @@ void outgramma(vector<vector<char>> in){ //Вывод результата
         string symbol = out[i][0];
         for (int j=1;j<out[i].size();j++) {
             cout << symbol << " -> "<< replacenum(out[i][j],in) <<"\n";
-           // cout << out[i][j] << " ";
+            //cout<< symbol<< out[i][j] << " ";
         }
-        cout << "\n";
     }
 
 }

@@ -1,12 +1,17 @@
-nonterminals = S,T,C,B
-terminals = a,b,c
-S -> aSa
-S -> b
-S -> aTa
-T -> aCa
-T -> aSa
-T -> b
-C -> aBa
-C -> b
-B -> c
+nonterminals = S, T, Q, R, W, E, Y, U, A
+terminals = b, a, c, d
+S -> A
+S -> Q
+A -> a W
+Q -> a E
+Q -> c R
+E -> c T
+Y -> c T
+W -> a W U
+E -> a W Y
+E -> a E T
+W -> b
+U -> b
+T -> d
+R -> d
 
